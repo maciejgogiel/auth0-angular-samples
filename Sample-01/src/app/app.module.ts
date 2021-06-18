@@ -12,13 +12,16 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeroComponent } from './components/hero/hero.component';
+import {TetrisCoreModule} from 'ngx-tetris';
+import { GameComponent } from './components/game/game.component';
 import { HomeContentComponent } from './components/home-content/home-content.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ExternalApiComponent } from './pages/external-api/external-api.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import {HotkeyModule} from 'angular2-hotkeys';
 import { environment as env } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { environment as env } from '../environments/environment';
     ProfileComponent,
     NavBarComponent,
     FooterComponent,
-    HeroComponent,
+    GameComponent,
     HomeContentComponent,
     LoadingComponent,
     ExternalApiComponent,
@@ -39,7 +42,9 @@ import { environment as env } from '../environments/environment';
     HttpClientModule,
     NgbModule,
     HighlightModule,
+    TetrisCoreModule,
     FontAwesomeModule,
+    HotkeyModule.forRoot(),
     AuthModule.forRoot({
       ...env.auth,
       httpInterceptor: {
